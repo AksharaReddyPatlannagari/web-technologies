@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<title>BubbleSort</title>
+<head>
+	<script>
+		var a=[];
+		function getvalues()
+		{
+		a[0]=parseInt(document.f1.n1.value);
+		a[1]=parseInt(document.f1.n2.value);
+		a[2]=parseInt(document.f1.n3.value);
+		a[3]=parseInt(document.f1.n4.value);
+		a[4]=parseInt(document.f1.n5.value);
+		a[5]=parseInt(document.f1.n6.value);
+		document.getElementById("output1").innerHTML=("the numbers given are:"+a);
+		}
+		function Bubblesort()
+		{
+		getvalues();
+		var len=a.length,i,j;
+		for(i=0;i<len;i++)
+		{
+		for(j=0;j<len-i;j++)
+		{
+		if(a[j]<a[j+1])
+		{
+		var temp=a[j];
+		a[j]=a[j+1];
+		a[j+1]=temp;
+		}
+		}
+		}
+		document.getElementById("output2").innerHTML=("Descending order:"+a);
+		}
+	</script>
+</head>
+<body style="text-align:center; padding: 120px 0px">
+	<h1>Bubble Sort in JS</h1>
+	<h2>Enter 6 integers</h2>
+	<form name="f1">
+		<input type="text" name="n1">
+		<br><br>
+		<input type="text" name="n2">
+		<br><br>
+		<input type="text" name="n3">
+		<br><br>
+		<input type="text" name="n4">
+		<br><br>
+		<input type="text" name="n5">
+		<br><br>
+		<input type="text" name="n6">
+		<br><br>
+		<input type="button" name="sort" value=Sort onclick=Bubblesort()>
+	</form>
+	<p id="output1"</p>
+	<p id="output2"</p>
+</body>
+</html>
+
