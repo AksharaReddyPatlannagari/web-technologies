@@ -17,10 +17,14 @@
 		var digit1=new Array("one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve","thirteen","fourteen","fifteen","sixteen","seventeen","eighteen","nineteen");
 		var digit2=new Array("twenty","thirty","forty","fifty","sixty","seventy","eighty","ninety");
 		var Word="";
-		if(s.length==3)
+		var temp;
+		if(s>=100)
 		{
-		Word+=parseInt(s[0]);
+		temp=math.floor(s/100);
+		Word+=digit1[temp-1];
+		Word+="Hundred and";
 		}
+		if(
 		}
 	</script>
 </head>
