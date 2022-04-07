@@ -1,3 +1,24 @@
+<!DOCTYPE html>
+<head>
+	<title>Calculator</TITLE>
+</head>
+<body>
+	<form name="f1" action=calculator_modify.php>
+		<h1>CALCULATOR</h1>
+		op1:<input type="text" name="op1">
+		<br><br>
+		op2:<input type="text" name="op2">
+		<br><br>
+		<select name="opr">
+			<option>operator</option>
+			<option>+</option>
+			<option>-</option>
+			<option>*</option>
+			<option>/</option>
+			<option>%</option>
+		</select>
+		<input type="submit" value="calculate">		
+	</form>
 <?php
 $connect=mysqli_connect("localhost","root","") or die("could'nt connect database");
 $data=mysqli_select_db($connect,"sample1") or die("no database with name user_info");
@@ -18,7 +39,7 @@ if(isset($_REQUEST["op1"])&&isset($_REQUEST["op1"]))
 		case "%":$res=$op1%$op2;break;
 		case "operator":echo("select an operator");break;
 	}
-	$q1="select * from operators where op1=$op1 and op2=$op2 and operator=$opr";
+	$q1="select * from operators where op1=$op1 and op2=$op2 and operator='".$opr."';";
 	$result=mysqli_query($connect,$q1)  or die("query execution unsuccessfull");
 	$n1=mysqli_num_rows($result);
 	if($n1==0)
@@ -37,3 +58,5 @@ if(isset($_REQUEST["op1"])&&isset($_REQUEST["op1"]))
 else
 	echo("enter the operands");
 ?>
+</body>
+</html>
