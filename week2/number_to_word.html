@@ -4,27 +4,51 @@
 	<script>
 		function toWord()
 		{
-		var s=document.f1.t1.value;
+		var str=document.f1.t1.value;
 		var t=new RegExp("[0-9]");
-		if(!t.test(s))
+		if(!t.test(str))
 		{
 		alert("Enter integers nly");
 		}
-		if(s.length>3)
+		if(str.length>3)
 		{
 		alert("Out of range");
 		}
+		else
+		{
 		var digit1=new Array("one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve","thirteen","fourteen","fifteen","sixteen","seventeen","eighteen","nineteen");
 		var digit2=new Array("twenty","thirty","forty","fifty","sixty","seventy","eighty","ninety");
 		var Word="";
 		var temp;
+		var s=parseInt(str)
+		if(s==0)
+		{
+			Word+="zero";
+		}
+		else
+		{
 		if(s>=100)
 		{
-		temp=math.floor(s/100);
-		Word+=digit1[temp-1];
-		Word+="Hundred and";
+			temp=parseInt(s/100);
+			Word+=digit1[temp-1];
+			Word+=" Hundred and ";
+			s=s%100;
 		}
-		if(
+		if(s>=20)
+		{
+			temp=parseInt(s/10)-1;
+			Word+=digit2[temp-1] +" ";
+			s=s%10;
+		}
+		if(s<20)
+		{
+			temp=s;
+			Word+=digit1[temp-1];
+		}
+		}
+		document.getElementById('t2').value = Word;
+
+		}
 		}
 	</script>
 </head>
@@ -34,7 +58,7 @@
 		<br><br>
 		<input type="button" value="generate" onclick="toWord()">
 		<br><br>
-		<textarea name=t2></textarea>
+		<textarea id=t2></textarea>
 	</form>
 </body>
 </html>
