@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<head>
+	<script>
+		function disp()
+		{
+		var text=document.getElementById("t1").value;
+		var lines=(text.split("\n")).length;
+		var words=(text.split(" ")).length+lines-1;
+		var charecters=text.length;
+		alert("NO OF LINES:\n"+lines+"\nNO OF WORDS:\n"+words+"\nNO OF CHARECTERS:\n"+charecters);
+		}
+	</script>
+</head>
+<body>
+	<textarea id="t1"></textarea>
+	<input type="button" value="Submit" onclick=disp()>
+</body>
+</html>

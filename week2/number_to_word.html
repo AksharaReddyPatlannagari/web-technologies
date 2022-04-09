@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<title>NUMber to words</title>
+<head>
+	<script>
+		function toWord()
+		{
+		var s=document.f1.t1.value;
+		var t=new RegExp("[0-9]");
+		if(!t.test(s))
+		{
+		alert("Enter integers nly");
+		}
+		if(s.length>3)
+		{
+		alert("Out of range");
+		}
+		var digit1=new Array("one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve","thirteen","fourteen","fifteen","sixteen","seventeen","eighteen","nineteen");
+		var digit2=new Array("twenty","thirty","forty","fifty","sixty","seventy","eighty","ninety");
+		var Word="";
+		var temp;
+		if(s>=100)
+		{
+		temp=math.floor(s/100);
+		Word+=digit1[temp-1];
+		Word+="Hundred and";
+		}
+		if(
+		}
+	</script>
+</head>
+<body style="text-align:center; padding: 120px 0px">
+	<form name="f1">
+		<input name="t1" type="text" placeholder="enter a number">
+		<br><br>
+		<input type="button" value="generate" onclick="toWord()">
+		<br><br>
+		<textarea name=t2></textarea>
+	</form>
+</body>
+</html>
